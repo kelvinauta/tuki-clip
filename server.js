@@ -23,6 +23,9 @@ try {
 const io = socketIo(server);
 const clipboardFilePath = path.join(__dirname, 'conf', 'clipboard.json');
 let clipboards = {};
+app.get('/ping', (req, res) => {
+   res.send('pong');
+});
 
 io.on('connection', (socket) => {
     console.log(`Nuevo dispositivo conectado: ${socket.id}`);
